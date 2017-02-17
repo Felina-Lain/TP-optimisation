@@ -1,8 +1,9 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\ShipController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GenerationProce.cs">
     <Files>
-      <File FileName="Assets\Scripts\ShipController.cs" Line="66" Column="78" />
+      <File FileName="Assets\Scripts\ShipController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\GenerationProce.cs" Line="22" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
