@@ -8,12 +8,14 @@ public class ShipController : MonoBehaviour {
     private Vector2 Movement;
     private Rigidbody2D RBody2D;
     public GameObject DiedMenu;
+	private Manager manag;
 
 	public static int _score;
 
     void Awake()
     {
         RBody2D = GetComponent<Rigidbody2D>();
+		manag =  Camera.main.GetComponent<Manager>();
     }
 
     void Update()
@@ -21,7 +23,7 @@ public class ShipController : MonoBehaviour {
         //Gathering controller information (keyboard and pad)
         if(Input.GetKey(KeyCode.Escape))
         {
-            Camera.main.GetComponent<Manager>().QuitGame();
+			manag.QuitGame();
         }
         float inputX = Input.GetAxis("Horizontal");
         float inputY = Input.GetAxis("Vertical");
@@ -34,10 +36,9 @@ public class ShipController : MonoBehaviour {
         if (blast)
         {
             WeaponScript weapon = GetComponent<WeaponScript>();
-            if (weapon != null)
-            {
-                weapon.Attack(false); //false: player is not an enemy
-            }
+
+            weapon.Attack(false); //false: player is not an enemy
+
         }
     }
 
