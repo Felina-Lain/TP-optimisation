@@ -49,6 +49,7 @@
      <Compile Include="Assets\MenuMgr.cs" />
      <Compile Include="Assets\Scripts\BlastScript.cs" />
      <Compile Include="Assets\Scripts\EnemyScript.cs" />
+     <Compile Include="Assets\Scripts\GenerationProce.cs" />
      <Compile Include="Assets\Scripts\HealthManager.cs" />
      <Compile Include="Assets\Scripts\HighScores.cs" />
      <Compile Include="Assets\Scripts\Manager.cs" />
