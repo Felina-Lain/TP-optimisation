@@ -16,9 +16,9 @@ public class BlastScript : MonoBehaviour {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 10);
         foreach (Collider2D col in colliders)
         {
-            if(col.transform.name == GameObject.Find("Ship").transform.name)
+            if(col.transform.name == "Ship")
             {
-                GameObject.Find("Ship").GetComponent<HealthManager>().HP--;
+                col.GetComponent<HealthManager>().HP--;
             }
         }
     }

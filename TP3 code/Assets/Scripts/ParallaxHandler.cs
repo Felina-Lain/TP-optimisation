@@ -67,7 +67,7 @@ public class ParallaxHandler : MonoBehaviour
 
     void OnDestroy()
     {
-        if (WinMenu && GameObject.Find("Ship"))
+        if (WinMenu)
         {
             WinMenu.SetActive(true);
         }
