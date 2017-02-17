@@ -22,7 +22,7 @@ public class EnemyScript : MonoBehaviour
 
 	void OnDestroy () {
 
-		ShipController._score += 1;
+		Manager._score += 1;
 
 	}
 }

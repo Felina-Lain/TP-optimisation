@@ -50,6 +50,7 @@
      <Compile Include="Assets\Scripts\BlastScript.cs" />
      <Compile Include="Assets\Scripts\EnemyScript.cs" />
      <Compile Include="Assets\Scripts\HealthManager.cs" />
+     <Compile Include="Assets\Scripts\HighScores.cs" />
      <Compile Include="Assets\Scripts\Manager.cs" />
      <Compile Include="Assets\Scripts\ParallaxHandler.cs" />
      <Compile Include="Assets\Scripts\Sauvegarde.cs" />

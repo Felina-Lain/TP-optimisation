@@ -14,7 +14,7 @@ public class Sauvegarde : MonoBehaviour {
 
 		SavedData dataa = new SavedData();
 
-		dataa.pouints = ShipController._score;
+		dataa.pouints = Manager._score;
 
 		//save on external file
 		BinaryFormatter bf = new BinaryFormatter();
@@ -34,7 +34,7 @@ public class Sauvegarde : MonoBehaviour {
 			BinaryFormatter bf = new BinaryFormatter ();
 			FileStream file = File.Open (Application.persistentDataPath + "/" + name + ".bananasplit", FileMode.Open);
 			SavedData dataa = (SavedData)bf.Deserialize (file);
-
+			file.Close();
 			return dataa.pouints;
 
 		} else {

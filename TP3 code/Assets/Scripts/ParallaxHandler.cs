@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 using System.IO;
+using UnityEditor;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Collections.Generic;
 
 public class ParallaxHandler : MonoBehaviour 
 {
@@ -11,6 +14,9 @@ public class ParallaxHandler : MonoBehaviour
     public float Displaced;
     public float DistanceOffScreen;
     public GameObject WinMenu;
+
+	private BinaryFormatter bf;
+	private List<int> _compare = new List<int>();
 
     void Awake()
     {
@@ -73,19 +79,34 @@ public class ParallaxHandler : MonoBehaviour
             WinMenu.SetActive(true);
         }
 
-		int savenum =   System.Convert.ToInt32(Path.GetFileNameWithoutExtension(Application.persistentDataPath));
+		_compare.Clear ();
 
-		if (File.Exists (Application.persistentDataPath + "/" + savenum + ".bananasplit")) {
+		for (int i = 0; i < 5; i++) {
 
-			Camera.main.GetComponent<Sauvegarde> ().Saving (savenum + 1);
-			savenum++;
-
+			if (File.Exists (Application.persistentDataPath + "/" + i + ".bananasplit")) {
+				BinaryFormatter bf = new BinaryFormatter ();
+				FileStream file = File.Open (Application.persistentDataPath + "/" + i + ".bananasplit", FileMode.Open);
+				SavedData dataa = (SavedData)bf.Deserialize (file);
+				_compare.Add (dataa.pouints);
+				_compare.Sort ();
+				file.Close();
+			} else {
+				Camera.main.GetComponent<Sauvegarde> ().Saving (0);
+			}
 		}
 
-		if (savenum > 6) {
+		bool _check = false;
 
-			savenum = 0;
+		for (int y = 0; y < 5; y++) {
 
+			if (Manager._score > _compare [y] && !_check) {
+				_compare.Insert (y, Manager._score);
+				_check = true;
+			}else {
+				return;
+			}
+
+			Camera.main.GetComponent<Sauvegarde> ().Saving (y);
 		}
     }
 }
