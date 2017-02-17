@@ -5,10 +5,19 @@ public class BlastScript : MonoBehaviour {
     public bool IsEnemyBlast = false;
     public float LifeTime = 1;
 
+	void OnEnable(){
+
+		LifeTime = 0.7f;
+	}
+
 	// Use this for initialization
-	void Start () 
+	void Update () 
     {
-        Destroy(gameObject, LifeTime);
+		LifeTime -= Time.deltaTime;
+		if (LifeTime <= 0) {
+			ObjectPool.instance.PoolObject (gameObject);
+		}
+
 	}
 
 }

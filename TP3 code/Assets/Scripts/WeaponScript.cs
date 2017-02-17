@@ -27,6 +27,7 @@ public class WeaponScript : MonoBehaviour
         {
             BlastCooldown = BlastingRate;
 			Transform BlastTransform = ObjectPool.instance.GetObjectForType (BlastPrefab.name, false).transform;
+			BlastTransform.name = BlastPrefab.name;
 			BlastTransform.transform.position = transform.position;
 			BlastTransform.transform.rotation = transform.rotation;
            

@@ -17,7 +17,7 @@ public class HealthManager : MonoBehaviour
 
                 if (HP <= 0)
                 {
-                    Destroy(gameObject);
+					Destroy (gameObject);
                 }
             }
         }

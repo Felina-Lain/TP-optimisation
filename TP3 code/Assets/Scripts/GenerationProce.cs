@@ -22,31 +22,31 @@ public class GenerationProce: MonoBehaviour {
 		float downLimitation = Camera.main.ViewportToWorldPoint(new Vector3(0,1,0)).y;
 
 
-		int numeroaupif = Random.Range(1,4);
+		int numeroaupif = Random.Range(1,3);
 
 		Vector3 randompos = new Vector3 (rightLimitation + 0.1f, Random.Range (downLimitation, upLimitation), 0);
 			
 		if(numeroaupif == 1)
 		{
 			//GameObject inst = Instantiate (prefab1, randompos, Quaternion.identity);
-			GameObject inst = ObjectPool.instance.GetObjectForType(prefab1.name, false);
-			inst.transform.position = randompos;
-			inst.transform.rotation = Quaternion.identity;
-			inst.transform.parent = this.transform;
+			GameObject inst1 = ObjectPool.instance.GetObjectForType(prefab1.name, false);
+			inst1.transform.position = randompos;
+			inst1.transform.rotation = Quaternion.identity;
+			inst1.transform.parent = this.transform;
 		}
 		if(numeroaupif == 2)
 		{
-			GameObject inst = ObjectPool.instance.GetObjectForType(prefab2.name, false);
-			inst.transform.position = randompos;
-			inst.transform.rotation = Quaternion.identity;
-			inst.transform.parent = this.transform;
+			GameObject inst2 = ObjectPool.instance.GetObjectForType(prefab2.name, false);
+			inst2.transform.position = randompos;
+			inst2.transform.rotation = Quaternion.identity;
+			inst2.transform.parent = this.transform;
 		}
 		if(numeroaupif == 3)
 		{
-			GameObject inst = ObjectPool.instance.GetObjectForType(prefab3.name, false);
-			inst.transform.position = randompos;
-			inst.transform.rotation = Quaternion.identity;
-			inst.transform.parent = this.transform;
+			GameObject inst3 = ObjectPool.instance.GetObjectForType(prefab3.name, false);
+			inst3.transform.position = randompos;
+			inst3.transform.rotation = Quaternion.identity;
+			inst3.transform.parent = this.transform;
 		}
 	}
 	
