@@ -26,24 +26,17 @@ public class WeaponScript : MonoBehaviour
         if (CanAttack)
         {
             BlastCooldown = BlastingRate;
-            var BlastTransform = Instantiate(BlastPrefab, transform.position, transform.rotation) as Transform;
-            BlastTransform.position = transform.position;
-            if (transform.parent)
-            {
-                BlastTransform.SetParent(transform.parent);
-            }
+			Transform BlastTransform = Instantiate(BlastPrefab, transform.position, transform.rotation) as Transform;
+           
             BlastScript Blast = BlastTransform.gameObject.GetComponent<BlastScript>();
-            if (Blast != null)
-            {
-                Blast.IsEnemyBlast = IsEnemy;
-            }
+            Blast.IsEnemyBlast = IsEnemy;
+
 
             // On saisit la direction pour le mouvement
             AutoMoveAndRotate Move = BlastTransform.gameObject.GetComponent<AutoMoveAndRotate>();
-            if (Move != null)
-            {
-                Move.moveUnitsPerSecond.value = Vector3.right * BlastSpeed;
-            }
+		
+            Move.moveUnitsPerSecond.value = Vector3.right * BlastSpeed;
+          
         }
     }
 
