@@ -11,15 +11,4 @@ public class BlastScript : MonoBehaviour {
         Destroy(gameObject, LifeTime);
 	}
 
-    void Update()
-    {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 10);
-        foreach (Collider2D col in colliders)
-        {
-            if(col.transform.name == "Ship")
-            {
-                col.GetComponent<HealthManager>().HP--;
-            }
-        }
-    }
 }

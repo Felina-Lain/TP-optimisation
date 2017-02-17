@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.IO;
 
 public class ParallaxHandler : MonoBehaviour 
 {
@@ -71,5 +72,20 @@ public class ParallaxHandler : MonoBehaviour
         {
             WinMenu.SetActive(true);
         }
+
+		int savenum =   System.Convert.ToInt32(Path.GetFileNameWithoutExtension(Application.persistentDataPath));
+
+		if (File.Exists (Application.persistentDataPath + "/" + savenum + ".bananasplit")) {
+
+			Camera.main.GetComponent<Sauvegarde> ().Saving (savenum + 1);
+			savenum++;
+
+		}
+
+		if (savenum > 6) {
+
+			savenum = 0;
+
+		}
     }
 }
