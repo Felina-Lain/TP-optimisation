@@ -1,6 +1,4 @@
 ﻿using UnityEngine;
-using System.IO;
-
 
 public class ShipController : MonoBehaviour {
 
@@ -8,8 +6,6 @@ public class ShipController : MonoBehaviour {
     private Vector2 Movement;
     private Rigidbody2D RBody2D;
     public GameObject DiedMenu;
-
-	public static int _score;
 
     void Awake()
     {
@@ -49,21 +45,5 @@ public class ShipController : MonoBehaviour {
     void OnDestroy()
     {
         DiedMenu.SetActive(true);
-				
-		int savenum =   System.Convert.ToInt32(Path.GetFileNameWithoutExtension(Application.persistentDataPath));
-
-		if (File.Exists (Application.persistentDataPath + "/" + savenum + ".bananasplit")) {
-
-			Camera.main.GetComponent<Sauvegarde> ().Saving (savenum + 1);
-			savenum++;
-
-		}
-
-		if (savenum > 6) {
-		
-			savenum = 0;
-		
-		}
-	}
-
+    }
 }
