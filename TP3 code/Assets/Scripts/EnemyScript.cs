@@ -19,4 +19,10 @@ public class EnemyScript : MonoBehaviour
             }
         }
 	}
+
+	void OnDestroy () {
+
+		ShipController._score += 1;
+
+	}
 }
