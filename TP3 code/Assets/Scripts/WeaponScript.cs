@@ -26,7 +26,9 @@ public class WeaponScript : MonoBehaviour
         if (CanAttack)
         {
             BlastCooldown = BlastingRate;
-			Transform BlastTransform = Instantiate(BlastPrefab, transform.position, transform.rotation) as Transform;
+			Transform BlastTransform = ObjectPool.instance.GetObjectForType (BlastPrefab.name, false).transform;
+			BlastTransform.transform.position = transform.position;
+			BlastTransform.transform.rotation = transform.rotation;
            
             BlastScript Blast = BlastTransform.gameObject.GetComponent<BlastScript>();
             Blast.IsEnemyBlast = IsEnemy;

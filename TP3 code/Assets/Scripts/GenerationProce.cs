@@ -28,17 +28,24 @@ public class GenerationProce: MonoBehaviour {
 			
 		if(numeroaupif == 1)
 		{
-			GameObject inst = Instantiate (prefab1, randompos, Quaternion.identity);
+			//GameObject inst = Instantiate (prefab1, randompos, Quaternion.identity);
+			GameObject inst = ObjectPool.instance.GetObjectForType(prefab1.name, false);
+			inst.transform.position = randompos;
+			inst.transform.rotation = Quaternion.identity;
 			inst.transform.parent = this.transform;
 		}
 		if(numeroaupif == 2)
 		{
-			GameObject inst = Instantiate(prefab2, randompos ,  Quaternion.identity);
+			GameObject inst = ObjectPool.instance.GetObjectForType(prefab2.name, false);
+			inst.transform.position = randompos;
+			inst.transform.rotation = Quaternion.identity;
 			inst.transform.parent = this.transform;
 		}
 		if(numeroaupif == 3)
 		{
-			GameObject inst = Instantiate(prefab3, randompos ,  Quaternion.identity);
+			GameObject inst = ObjectPool.instance.GetObjectForType(prefab3.name, false);
+			inst.transform.position = randompos;
+			inst.transform.rotation = Quaternion.identity;
 			inst.transform.parent = this.transform;
 		}
 	}
