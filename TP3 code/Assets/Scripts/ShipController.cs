@@ -82,13 +82,13 @@ public class ShipController : MonoBehaviour {
 				FileStream file = File.Open (Application.persistentDataPath + "/" + i + ".bananasplit", FileMode.Open);
 				SavedData dataa = (SavedData)bf.Deserialize (file);
 				_compare.Add(dataa.pouints);
-				_compare.Sort ();
 				file.Close();
 			}else {
 				Camera.main.GetComponent<Sauvegarde> ().Saving (0);
 			}
 		}
 
+		_compare.Sort((a, b) => -1* a.CompareTo(b));
 		bool _check = false;
 
 		for (int y = 0; y < 5; y++) {

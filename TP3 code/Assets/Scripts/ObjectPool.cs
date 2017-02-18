@@ -11,7 +11,7 @@ public class ObjectPool : MonoBehaviour
 	public GameObject[] objectPrefabs;
 	//liste des truc poolé
 	public List<GameObject>[] pooledObjects;
-	//nb a poolé
+	//nb a pooler
 	public int[] amountToBuffer;
 
 	public int defaultBufferAmount = 3;
@@ -47,6 +47,8 @@ public class ObjectPool : MonoBehaviour
 				GameObject newObj = Instantiate(objectPrefab) as GameObject;
 				newObj.name = objectPrefab.name;
 				PoolObject(newObj);
+				Manager._score = 0;
+				Manager._bosses = 0;
 			}
 
 			i++;
@@ -85,7 +87,7 @@ public class ObjectPool : MonoBehaviour
 	}
 
 	//pool le bordel
-	public void PoolObject ( GameObject obj )
+	public void  PoolObject ( GameObject obj )
 	{
 		for ( int i=0; i<objectPrefabs.Length; i++)
 		{

@@ -38,7 +38,8 @@ public class ParallaxHandler : MonoBehaviour
         {
             for (int i = Childs.Length - 1; i >= 0; i--)  // /!\ elt0 is the LayerBounds
             {
-                Destroy(Childs[i]);
+
+				Destroy(Childs[i]);
             }
             //Debug.Log("LayerBounds=" + LayerBounds);
         }
@@ -61,7 +62,7 @@ public class ParallaxHandler : MonoBehaviour
             }
             else
             {
-                Destroy(gameObject);
+               Destroy(gameObject);
             }
         }
         else

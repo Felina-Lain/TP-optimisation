@@ -20,7 +20,7 @@ public class EnemyScript : MonoBehaviour
         }
 	}
 
-	void OnDestroy () {
+	void OnDisable () {
 
 		Manager._score += 1;
 

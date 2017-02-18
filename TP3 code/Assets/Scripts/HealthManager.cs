@@ -18,14 +18,17 @@ public class HealthManager : MonoBehaviour
 
                 if (HP <= 0)
                 {
-					Destroy (gameObject);
+					if (IsEnemy) {
+						ObjectPool.instance.PoolObject (gameObject);
+					} else {
+						Destroy (gameObject);}
                 }
             }
         }
         
     }
 
-	void OnDestroy(){
+	void OnDisable(){
 
 		if(IsBoss){
 			Manager._bosses ++;}
