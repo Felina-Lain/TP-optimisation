@@ -11,9 +11,6 @@ public class ShipController : MonoBehaviour {
     private Rigidbody2D RBody2D;
     public GameObject DiedMenu;
 	private Manager manag;
-	private BinaryFormatter bf;
-	private List<int> _compare = new List<int>();
-
 
 	float leftLimitation;
 	float rightLimitation;
@@ -72,69 +69,8 @@ public class ShipController : MonoBehaviour {
     void OnDestroy()
     {
         DiedMenu.SetActive(true);
-
+		Camera.main.GetComponent<Sauvegarde>().DoingSaving();
 			
     }
 
-	public void Buttonfuck () {
-		
-		_compare.Clear ();
-		print(Application.persistentDataPath);
-
-		for (int i = 0; i < 5; i++) {
-
-			if (File.Exists (Application.persistentDataPath + "/" + i + ".bananasplit")) {
-				BinaryFormatter bf = new BinaryFormatter ();
-				FileStream file = File.Open (Application.persistentDataPath + "/" + i + ".bananasplit", FileMode.Open);
-				SavedData dataa = (SavedData)bf.Deserialize (file);
-				print("I found save " + i + " containaing " + dataa.pouints);
-				_compare.Add(dataa.pouints);
-				file.Close();
-			}else {
-				_compare.Add(0);
-			}
-		}
-
-		print ("I did all the save check");
-
-		print(_compare[0]);
-		print(_compare[1]);
-		print(_compare[2]);
-		print(_compare[3]);
-		print(_compare[4]);
-		print("check of the value before sort");
-
-		_compare.Sort((a, b) => -1* a.CompareTo(b));
-
-		print(_compare[0]);
-		print(_compare[1]);
-		print(_compare[2]);
-		print(_compare[3]);
-		print(_compare[4]);
-		print("check of the value after sort");
-
-
-		bool _check = false;
-
-		for (int y = 0; y < 5; y++) {
-
-			print("actual score is " + Manager._score);
-
-			if (Manager._score > _compare [y] && !_check) {
-				
-				print("I found a smaller score");
-
-				_compare.Insert (y, Manager._score);
-				_check = true;
-
-			}else {
-				
-				print("I didn't find a smaller score");
-				return;
-			}
-
-			print ("saving the files again");
-			Camera.main.GetComponent<Sauvegarde> ().Saving (y);
-		}
-	}
 }

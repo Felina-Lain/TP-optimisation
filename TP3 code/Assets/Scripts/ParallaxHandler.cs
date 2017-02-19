@@ -15,9 +15,6 @@ public class ParallaxHandler : MonoBehaviour
     public float DistanceOffScreen;
     public GameObject WinMenu;
 
-	private BinaryFormatter bf;
-	private List<int> _compare = new List<int>();
-
     void Awake()
     {
         //Computing bounds of the whole layer, then delete every unneaded component
